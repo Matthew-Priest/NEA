@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NewBehaviourScript : MonoBehaviour
 {
@@ -17,5 +18,6 @@ public class NewBehaviourScript : MonoBehaviour
     {
         Time.timeScale = 0;
         Debug.Log("button was clicked");
+        SceneManager.LoadScene("Pause Menu");
     }
 }
