@@ -26,7 +26,7 @@ public class SpawnZombies : MonoBehaviour
     {
         int randnum = Random.Range(1, 7);
         Transform selectedrow = spawnPoints[randnum - 1];
-        Debug.Log(randnum);
+        //Debug.Log(randnum);
         Instantiate(ZombiePrefab, selectedrow.position, Quaternion.identity); 
     }
 }
