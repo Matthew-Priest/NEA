@@ -1117,8 +1117,8 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 130
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2089,7 +2089,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plantSelected: 0
-  mousePosition: {x: 0, y: 0, z: 0}
+  mouseworldPosition: {x: 0, y: 0, z: 0}
 --- !u!4 &628204980
 Transform:
   m_ObjectHideFlags: 0
@@ -6553,7 +6553,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 7433469304890809778, guid: 8467fd086c2c8e2488f01b72a56ee69e, type: 3}
+  m_Sprite: {fileID: -1171790437229086565, guid: e5e4d3de07c31cd48bcfea11e6569b5f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6702,6 +6702,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 2130249915}
     m_Modifications:
     - target: {fileID: 478225990287559022, guid: 7fb5a0b686ef45f4aadd2e93c8a0569f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 478225990287559022, guid: 7fb5a0b686ef45f4aadd2e93c8a0569f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 478225990287559022, guid: 7fb5a0b686ef45f4aadd2e93c8a0569f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -153.03082
       objectReference: {fileID: 0}
@@ -6766,6 +6774,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2130249915}
     m_Modifications:
+    - target: {fileID: 588929517197833282, guid: 0338579abfabab645a949dcb00db22b5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 588929517197833282, guid: 0338579abfabab645a949dcb00db22b5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.17
+      objectReference: {fileID: 0}
     - target: {fileID: 588929517197833282, guid: 0338579abfabab645a949dcb00db22b5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -153.03082
@@ -6838,6 +6854,14 @@ PrefabInstance:
     - target: {fileID: 3061415596109377615, guid: fa704b017b716534a9624cf8ff093824, type: 3}
       propertyPath: m_Name
       value: PotatoMine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6732128383242445172, guid: fa704b017b716534a9624cf8ff093824, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6732128383242445172, guid: fa704b017b716534a9624cf8ff093824, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 6732128383242445172, guid: fa704b017b716534a9624cf8ff093824, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7005,9 +7029,17 @@ PrefabInstance:
       value: Sunflower
       objectReference: {fileID: 0}
     - target: {fileID: 2358892519790746926, guid: e325bf16b0ca074409ac17cb9cdba78c, type: 3}
+      propertyPath: m_Size.x
+      value: 14.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 2358892519790746926, guid: e325bf16b0ca074409ac17cb9cdba78c, type: 3}
+      propertyPath: m_Size.y
+      value: 16.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 2358892519790746926, guid: e325bf16b0ca074409ac17cb9cdba78c, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 7433469304890809778, guid: 8467fd086c2c8e2488f01b72a56ee69e, type: 3}
+      objectReference: {fileID: -1171790437229086565, guid: e5e4d3de07c31cd48bcfea11e6569b5f, type: 3}
     - target: {fileID: 2358892519790746926, guid: e325bf16b0ca074409ac17cb9cdba78c, type: 3}
       propertyPath: m_SortingLayer
       value: 3
@@ -7015,6 +7047,18 @@ PrefabInstance:
     - target: {fileID: 2358892519790746926, guid: e325bf16b0ca074409ac17cb9cdba78c, type: 3}
       propertyPath: m_SortingLayerID
       value: -1495645251
+      objectReference: {fileID: 0}
+    - target: {fileID: 2358892519790746926, guid: e325bf16b0ca074409ac17cb9cdba78c, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4842553234269245164, guid: e325bf16b0ca074409ac17cb9cdba78c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4842553234269245164, guid: e325bf16b0ca074409ac17cb9cdba78c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4842553234269245164, guid: e325bf16b0ca074409ac17cb9cdba78c, type: 3}
       propertyPath: m_LocalPosition.x
