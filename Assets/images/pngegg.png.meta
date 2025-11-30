@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 8467fd086c2c8e2488f01b72a56ee69e
+guid: e5e4d3de07c31cd48bcfea11e6569b5f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7433469304890809778
-    second: plants-vs-zombies-2-it-s-about-time-plants-vs-zombies-garden-warfare-common-sunflower-plants-vs-zombies-heroes-plants-vs-zombies-favicon-ico-283a29453b42b5b31292675c3afad7ef_0
+      213: -1171790437229086565
+    second: pngegg_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: plants-vs-zombies-2-it-s-about-time-plants-vs-zombies-garden-warfare-common-sunflower-plants-vs-zombies-heroes-plants-vs-zombies-favicon-ico-283a29453b42b5b31292675c3afad7ef_0
+      name: pngegg_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 13
-        width: 527
-        height: 587
+        x: 9
+        y: 0
+        width: 1451
+        height: 1646
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2bd59c6d2fcf82760800000000000000
-      internalID: 7433469304890809778
+      spriteID: b98b2c54ec6fcbfe0800000000000000
+      internalID: -1171790437229086565
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      plants-vs-zombies-2-it-s-about-time-plants-vs-zombies-garden-warfare-common-sunflower-plants-vs-zombies-heroes-plants-vs-zombies-favicon-ico-283a29453b42b5b31292675c3afad7ef_0: 7433469304890809778
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
