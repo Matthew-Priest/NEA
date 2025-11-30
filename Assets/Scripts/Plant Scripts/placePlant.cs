@@ -4,15 +4,16 @@ using UnityEngine.InputSystem;
 public class placePlant : MonoBehaviour
 {
     public bool plantSelected;
-    public Vector3 mousePosition;
+    public Vector3 mouseworldPosition;
     public void plantPlacer()
     {
-        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); //changes mouse coords from screen coords to world coords
-        mousePosition.z = 0; //2D 
-        Debug.Log("Mouse screen pos: " + Input.mousePosition);
-        Debug.Log("Mouse world pos: " + mousePosition);
 
-        if (checkEmpty(Input.mousePosition))
+        mouseworldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); //changes mouse coords from screen coords to world coords
+        mouseworldPosition.z = 0; //2D 
+        Debug.Log("Mouse screen pos: " + Input.mousePosition);
+        Debug.Log("Mouse world pos: " + mouseworldPosition);
+
+        if (checkEmpty(mouseworldPosition))
        {
             if (plant_Manager.selectedPlantIndex < 0 || plant_Manager.selectedPlantIndex >= plant_Manager.Instance.plantPrefabs.Length)
             {
@@ -20,14 +21,14 @@ public class placePlant : MonoBehaviour
                 return;
             }
 
-            Instantiate(plant_Manager.Instance.plantPrefabs[plant_Manager.selectedPlantIndex], mousePosition, Quaternion.identity);
+            Instantiate(plant_Manager.Instance.plantPrefabs[plant_Manager.selectedPlantIndex], mouseworldPosition, Quaternion.identity);
             Debug.Log("object created");
 
        }
     }
-    public bool checkEmpty(Vector3 gridcoords)
+    public bool checkEmpty(Vector3 worldCoords)
     {
-       return true;
+        return true;
     }
     void Update()
     {
