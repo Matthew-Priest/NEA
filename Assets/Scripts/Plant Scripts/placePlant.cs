@@ -5,6 +5,12 @@ public class placePlant : MonoBehaviour
 {
     public bool plantSelected;
     public Vector3 mouseworldPosition;
+    public int[] xgridborders = { -1, 1, 3, 5, 7, 9, 11, 13, 15 };
+    public int[] ygridborders = { 1, -1, -3, -5, -7, -9,};
+    public int maxX;
+    public int minX;
+    public int maxY;
+    public int minY;
     public void plantPlacer()
     {
 
@@ -20,9 +26,8 @@ public class placePlant : MonoBehaviour
                 Debug.LogError("Invalid plant index: " + plant_Manager.selectedPlantIndex);
                 return;
             }
-
-            Instantiate(plant_Manager.Instance.plantPrefabs[plant_Manager.selectedPlantIndex], mouseworldPosition, Quaternion.identity);
-            Debug.Log("object created");
+            placeAtCentre(mouseworldPosition);
+            
 
        }
     }
@@ -39,6 +44,31 @@ public class placePlant : MonoBehaviour
             plant_Manager.selectedPlantIndex = -1; //choice resets after placing
             Debug.Log("choice reset");
         }
+    }
+    void placeAtCentre(Vector3 mouseworldPosition)
+    {
+        Vector3 correctPlacement;
+        for (int i = 0; i < 8; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                minX = xgridborders[i];
+                maxX = xgridborders[i + 1];
+                minY = ygridborders[j];
+                maxY = ygridborders[j + 1];
+                if (mouseworldPosition.x >= minX && mouseworldPosition.x <= maxX)
+                {
+                    if (mouseworldPosition.y <= minY && mouseworldPosition.y >= maxY)
+                    {
+                        correctPlacement = new Vector3(minX + 1, minY - 1, 0);
+                        Debug.Log(correctPlacement);
+                        Instantiate(plant_Manager.Instance.plantPrefabs[plant_Manager.selectedPlantIndex],correctPlacement, Quaternion.identity);
+                        Debug.Log("object created");
+                    }
+                }
+            }
+        }
+        
     }
 
 }
