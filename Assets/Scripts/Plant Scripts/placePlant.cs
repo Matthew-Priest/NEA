@@ -30,10 +30,6 @@ public class placePlant : MonoBehaviour
                 return;
             }
             placeplant(createcentralcoords(mouseworldPosition));
-            
-
-
-
        }
     }
     public bool checkEmpty(Vector3 worldCoords)
