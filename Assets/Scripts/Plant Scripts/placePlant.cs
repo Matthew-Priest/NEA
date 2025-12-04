@@ -11,28 +11,40 @@ public class placePlant : MonoBehaviour
     public int minX;
     public int maxY;
     public int minY;
+    public Vector3[] fulltiles = new Vector3[40]; //assigned
+    public int freespacepointer = 0;
+    public Vector3 centralcoords;
     public void plantPlacer()
     {
-
+        
         mouseworldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); //changes mouse coords from screen coords to world coords
         mouseworldPosition.z = 0; //2D 
         Debug.Log("Mouse screen pos: " + Input.mousePosition);
         Debug.Log("Mouse world pos: " + mouseworldPosition);
 
-        if (checkEmpty(mouseworldPosition))
+        if (checkEmpty(createcentralcoords(mouseworldPosition)))
        {
             if (plant_Manager.selectedPlantIndex < 0 || plant_Manager.selectedPlantIndex >= plant_Manager.Instance.plantPrefabs.Length)
             {
                 Debug.LogError("Invalid plant index: " + plant_Manager.selectedPlantIndex);
                 return;
             }
-            placeAtCentre(mouseworldPosition);
+            placeplant(createcentralcoords(mouseworldPosition));
             
+
+
 
        }
     }
     public bool checkEmpty(Vector3 worldCoords)
     {
+        for (int i = 0; i < fulltiles.Length; i++)
+        {
+            if (fulltiles[i] == worldCoords)
+            {
+                return false;
+            }
+        }
         return true;
     }
     void Update()
@@ -45,9 +57,23 @@ public class placePlant : MonoBehaviour
             Debug.Log("choice reset");
         }
     }
-    void placeAtCentre(Vector3 mouseworldPosition)
+    void placeplant(Vector3 correctPlacement)
     {
-        Vector3 correctPlacement;
+
+         Instantiate(plant_Manager.Instance.plantPrefabs[plant_Manager.selectedPlantIndex],correctPlacement, Quaternion.identity);
+         Debug.Log("object created");
+         fulltiles[freespacepointer] = correctPlacement;
+        if (freespacepointer < 39)
+        {
+            freespacepointer += 1;
+        }
+         
+
+        
+    }
+    public Vector3 createcentralcoords(Vector3 mouseworldPosition) 
+    {
+        Vector3 correctPlacement = Vector3.zero; //to avoid returning a null vector3 if the if statement conditions are never met
         for (int i = 0; i < 8; i++)
         {
             for (int j = 0; j < 5; j++)
@@ -61,14 +87,13 @@ public class placePlant : MonoBehaviour
                     if (mouseworldPosition.y <= minY && mouseworldPosition.y >= maxY)
                     {
                         correctPlacement = new Vector3(minX + 1, minY - 1, 0);
-                        Debug.Log(correctPlacement);
-                        Instantiate(plant_Manager.Instance.plantPrefabs[plant_Manager.selectedPlantIndex],correctPlacement, Quaternion.identity);
-                        Debug.Log("object created");
+                        return correctPlacement;
                     }
                 }
             }
         }
-        
+        return correctPlacement;
+
     }
 
 }
