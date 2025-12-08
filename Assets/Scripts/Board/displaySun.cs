@@ -10,4 +10,8 @@ public class displaySun : MonoBehaviour
     {
         sun_Display.text = Sun.ToString();
     }
+    public void incrementSun(int amt)
+    {
+        Sun += amt;
+    }
 }
