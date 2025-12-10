@@ -13,7 +13,7 @@ public class CollectSun : MonoBehaviour
     {
         sunscript = Object.FindFirstObjectByType<displaySun>(); //code used to link something to the script
     }
-    private void OnMouseDown()
+    void OnMouseDown()
     {
         whenClicked();
 
