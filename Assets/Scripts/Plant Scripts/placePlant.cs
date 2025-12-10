@@ -47,44 +47,9 @@ public class placePlant : MonoBehaviour
                 return false;
             }
         }
-        switch (plant_Manager.selectedPlantIndex)
+        if (sunscript.outputSun() < plantPrices[plant_Manager.selectedPlantIndex])
         {
-            case 0:
-                if (sunscript.outputSun() < 100)
-                {
-                    return false;
-                }
-                else
-                {
-                    return true;
-                }
-            case 1:
-                if (sunscript.outputSun() < 50)
-                {
-                    return false;
-                }
-                else
-                {
-                    return true;
-                }
-            case 2:
-                if (sunscript.outputSun() < 50)
-                {
-                    return false;
-                }
-                else
-                {
-                    return true;
-                }
-            case 3:
-                if (sunscript.outputSun() < 25)
-                {
-                    return false;
-                }
-                else
-                {
-                    return true;
-                }                
+            return false;
         }
         return true;
     }
