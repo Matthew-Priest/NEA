@@ -7,7 +7,7 @@ public class GenerateSun : MonoBehaviour
     public GameObject Sun;
     private void Update()
     {
-        int rng = Random.Range(10, 21);
+        int rng = Random.Range(10, 17);
         timer -= Time.deltaTime;
         if (timer <= 0)
         {
