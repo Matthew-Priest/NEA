@@ -14,4 +14,12 @@ public class displaySun : MonoBehaviour
     {
         Sun += amt;
     }
+    public void decrementSun(int amt)
+    {
+        Sun -= amt;
+    }
+    public int outputSun()
+    {
+        return Sun;
+    }
 }

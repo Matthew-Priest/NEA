@@ -7,6 +7,7 @@ public class placePlant : MonoBehaviour
     public Vector3 mouseworldPosition;
     public int[] xgridborders = { -1, 1, 3, 5, 7, 9, 11, 13, 15 };
     public int[] ygridborders = { 1, -1, -3, -5, -7, -9,};
+    public int[] plantPrices = { 100, 50, 50, 25 };
     public int maxX;
     public int minX;
     public int maxY;
@@ -14,6 +15,11 @@ public class placePlant : MonoBehaviour
     public Vector3[] fulltiles = new Vector3[40]; //assigned
     public int freespacepointer = 0;
     public Vector3 centralcoords;
+    public displaySun sunscript;
+    void Start()
+    {
+        sunscript = Object.FindFirstObjectByType<displaySun>(); //code used to link something to the script
+    }
     public void plantPlacer()
     {
         
@@ -41,6 +47,45 @@ public class placePlant : MonoBehaviour
                 return false;
             }
         }
+        switch (plant_Manager.selectedPlantIndex)
+        {
+            case 0:
+                if (sunscript.outputSun() < 100)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            case 1:
+                if (sunscript.outputSun() < 50)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            case 2:
+                if (sunscript.outputSun() < 50)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            case 3:
+                if (sunscript.outputSun() < 25)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }                
+        }
         return true;
     }
     void Update()
@@ -63,9 +108,7 @@ public class placePlant : MonoBehaviour
         {
             freespacepointer += 1;
         }
-         
-
-        
+        sunscript.decrementSun(plantPrices[plant_Manager.selectedPlantIndex]);  
     }
     public Vector3 createcentralcoords(Vector3 mouseworldPosition) 
     {
