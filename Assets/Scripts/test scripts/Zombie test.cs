@@ -1,9 +1,10 @@
 using UnityEngine;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
-public class Zombie : Entity
+public class Zombie_test : MonoBehaviour
 {
     public bool inCollision = false;
+    public int Speed = 1;
 
     void Update()
     {
