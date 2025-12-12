@@ -769,6 +769,21 @@ PolygonCollider2D:
       - {x: -0.775, y: -2.475}
       - {x: -0.685, y: -2.375}
   m_UseDelaunayMesh: 0
+--- !u!114 &155435075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155435068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6cfba3d216828b41b9f77c1ebeadd72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  Damage: 5
+  fireCooldown: 2
 --- !u!1 &226566827
 GameObject:
   m_ObjectHideFlags: 0
@@ -5401,7 +5416,9 @@ MonoBehaviour:
   Health: 20
   Damage: 5
   Speed: 0.2
-  inCollision: 0
+  attackCooldown: 3
+  timer: 0
+  plantStats: {fileID: 0}
 --- !u!4 &1243754380 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7773205072462846127, guid: e5899ef544e8bbe4981176ef1615dd28, type: 3}
@@ -9944,6 +9961,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8183540528636504946, guid: 7fb5a0b686ef45f4aadd2e93c8a0569f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 155435074}
+    - targetCorrespondingSourceObject: {fileID: 8183540528636504946, guid: 7fb5a0b686ef45f4aadd2e93c8a0569f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 155435075}
   m_SourcePrefab: {fileID: 100100000, guid: 7fb5a0b686ef45f4aadd2e93c8a0569f, type: 3}
 --- !u!1001 &5165157569553959571
 PrefabInstance:

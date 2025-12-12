@@ -3,16 +3,29 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class Zombie : Entity
 {
-    public bool inCollision = false;
-
+    private bool inCollision = false;
+    public float attackCooldown = 3;
+    public float timer = 3;
+    public ClassicPlantStats plantStats;
+    private void Start()
+    {
+        plantStats = Object.FindFirstObjectByType<ClassicPlantStats>();
+    }
     void Update()
     {
        if(inCollision == false)
-        {
-            
+        {           
             transform.Translate(Vector2.left * Speed * Time.deltaTime);
         }
-        
+        if (inCollision)
+        {
+            timer -= Time.deltaTime;
+            if (timer <= 0)
+            {
+                plantStats.takeDamage(10);
+                timer = attackCooldown;
+            }           
+        }
     }
     private void Awake()
     {

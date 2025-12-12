@@ -13,13 +13,19 @@ public class ClassicPlantStats : MonoBehaviour
     {
         currentHealth = maxHealth;
     }
-    public void takeDamage(int damage)
+    private void Update()
     {
-        currentHealth -= damage;
-        if (currentHealth <= 0)
+        /*if (currentHealth <= 0)
         {
             die();
         }
+        */
+        
+    }
+    public void takeDamage(int damage)
+    {
+        Debug.Log($"{gameObject.name} took {damage} damage");
+        currentHealth -= damage;
     }
     public void die()
     {
