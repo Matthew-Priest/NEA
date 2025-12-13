@@ -8,18 +8,17 @@ public class ClassicPlantStats : MonoBehaviour
     public int Damage = 5;
     public double fireCooldown = 2;
     protected int currentHealth;
-
-    private void Start()
+    private void Awake()
     {
         currentHealth = maxHealth;
     }
     private void Update()
     {
-        /*if (currentHealth <= 0)
+        if (currentHealth <= 0)
         {
             die();
         }
-        */
+        
         
     }
     public void takeDamage(int damage)
