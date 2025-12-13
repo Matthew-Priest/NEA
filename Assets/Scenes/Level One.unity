@@ -782,8 +782,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  Damage: 5
   fireCooldown: 2
+  currentHealth: 0
 --- !u!1 &226566827
 GameObject:
   m_ObjectHideFlags: 0
@@ -2507,7 +2507,7 @@ MonoBehaviour:
   - {fileID: 473630473}
   MaxSpawnCount: 50
   SpawnCount: 0
-  spawnInterval: 5
+  spawnInterval: 15
   timer: 0
 --- !u!4 &595465541
 Transform:

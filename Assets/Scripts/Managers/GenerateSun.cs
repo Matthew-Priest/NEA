@@ -21,4 +21,8 @@ public class GenerateSun : MonoBehaviour
         Vector3 sunspawncoords = new Vector3(range, 0, 1);
         Instantiate(Sun,sunspawncoords,Quaternion.identity); 
     }
+    public void makeSunViaPlant(Vector3 position)
+    {
+        Instantiate(Sun,position,Quaternion.identity);
+    }
 }

@@ -7,10 +7,6 @@ public class Zombie : Entity
     public float attackCooldown = 3;
     public float timer = 3;
     public ClassicPlantStats plantStats;
-    private void Start()
-    {
-        plantStats = Object.FindFirstObjectByType<ClassicPlantStats>();
-    }
     void Update()
     {
        if(inCollision == false)
@@ -35,6 +31,7 @@ public class Zombie : Entity
     {
         if (collision.gameObject.CompareTag("Plant"))
         {
+            plantStats = collision.gameObject.GetComponent<ClassicPlantStats>();
             Debug.Log("collision detected");
             inCollision = true;
         }
@@ -44,6 +41,7 @@ public class Zombie : Entity
         if (collision.gameObject.CompareTag("Plant"))
         {
             inCollision = false;
+            plantStats = null;
         }
     }
 }

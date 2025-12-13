@@ -8,9 +8,9 @@ public class SpawnZombies : MonoBehaviour
 
     public Transform[] spawnPoints;
 
-    public int MaxSpawnCount = 50;
+    public int MaxSpawnCount = 20;
     public int SpawnCount = 0;
-    public float spawnInterval = 8f;
+    public float spawnInterval = 15f;
     public float timer;
 
     private void Update()
@@ -28,6 +28,6 @@ public class SpawnZombies : MonoBehaviour
         Transform selectedrow = spawnPoints[randnum - 1];
         //Debug.Log(randnum);
         Instantiate(ZombiePrefab, selectedrow.position, Quaternion.identity);
-        SpawnCount++;
+        SpawnCount+= 1;
     }
 }

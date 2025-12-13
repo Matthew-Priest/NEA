@@ -6,6 +6,11 @@ public class PeashooterStats : ClassicPlantStats
     void Start()
     {
         fireCooldown = 1.425;
+        maxHealth = 60;
     }
-    
+    private void Update()
+    {
+        //Debug.Log($"health =" +currentHealth);
+    }
+
 }

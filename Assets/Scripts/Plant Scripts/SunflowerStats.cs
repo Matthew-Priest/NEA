@@ -1,16 +1,22 @@
 using UnityEngine;
 
-public class SunflowerStats : MonoBehaviour
+public class SunflowerStats : ClassicPlantStats
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public float timer = 10;
+    public int generationCooldown = 10;
+    public GenerateSun sunscript;
+    private void Start()
     {
-        
+        maxHealth = 40;
     }
-
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         
+        timer -= Time.deltaTime;
+        if (timer <= 0)
+        {
+            timer = generationCooldown;
+            sunscript.makeSunViaPlant(transform.position);
+        }
     }
 }
