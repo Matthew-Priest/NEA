@@ -3,8 +3,8 @@ using UnityEngine;
 public class SunflowerStats : ClassicPlantStats
 {
     public float timer = 10;
-    public int generationCooldown = 10;
-    public GenerateSun sunscript;
+    public float generationCooldown = 10;
+    public GenerateSunViaPlant sunscript;
     private void Start()
     {
         maxHealth = 40;
@@ -14,9 +14,9 @@ public class SunflowerStats : ClassicPlantStats
         
         timer -= Time.deltaTime;
         if (timer <= 0)
-        {
-            timer = generationCooldown;
+        {           
             sunscript.makeSunViaPlant(transform.position);
+            timer = generationCooldown;
         }
     }
 }

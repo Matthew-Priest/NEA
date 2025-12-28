@@ -1790,6 +1790,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &488579744
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 488579746}
+  - component: {fileID: 488579745}
+  m_Layer: 0
+  m_Name: GenerateSunViaPlant
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &488579745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488579744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b449d1503f5c474492ff3682e95dc2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sun: {fileID: 2068192101}
+--- !u!4 &488579746
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488579744}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.3127818, y: -1.3915796, z: -0.044718523}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 613800420}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &496897346
 GameObject:
   m_ObjectHideFlags: 0
@@ -2646,6 +2691,7 @@ Transform:
   - {fileID: 130970378}
   - {fileID: 733187329}
   - {fileID: 553654018}
+  - {fileID: 488579746}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &628130101
@@ -2847,7 +2893,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &643613309
 Transform:
   m_ObjectHideFlags: 0
@@ -4772,10 +4818,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   fireCooldown: 2
-  currentHealth: 0
-  timer: 0
-  generationCooldown: 0
-  sunscript: {fileID: 553654019}
+  currentHealth: 100
+  timer: 10
+  generationCooldown: 10
+  sunscript: {fileID: 488579745}
 --- !u!1 &955145053
 GameObject:
   m_ObjectHideFlags: 0
@@ -10031,11 +10077,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 588929517197833282, guid: 0338579abfabab645a949dcb00db22b5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -153.03082
+      value: -150.29361
       objectReference: {fileID: 0}
     - target: {fileID: 588929517197833282, guid: 0338579abfabab645a949dcb00db22b5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 106.67139
+      value: 104.67713
       objectReference: {fileID: 0}
     - target: {fileID: 588929517197833282, guid: 0338579abfabab645a949dcb00db22b5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10126,11 +10172,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6732128383242445172, guid: fa704b017b716534a9624cf8ff093824, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -153.03082
+      value: -153.14813
       objectReference: {fileID: 0}
     - target: {fileID: 6732128383242445172, guid: fa704b017b716534a9624cf8ff093824, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 106.67139
+      value: 104.48161
       objectReference: {fileID: 0}
     - target: {fileID: 6732128383242445172, guid: fa704b017b716534a9624cf8ff093824, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10339,11 +10385,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4842553234269245164, guid: e325bf16b0ca074409ac17cb9cdba78c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -153.03082
+      value: -150.76285
       objectReference: {fileID: 0}
     - target: {fileID: 4842553234269245164, guid: e325bf16b0ca074409ac17cb9cdba78c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 106.67139
+      value: 106.7887
       objectReference: {fileID: 0}
     - target: {fileID: 4842553234269245164, guid: e325bf16b0ca074409ac17cb9cdba78c, type: 3}
       propertyPath: m_LocalPosition.z

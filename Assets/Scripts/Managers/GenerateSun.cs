@@ -19,10 +19,8 @@ public class GenerateSun : MonoBehaviour
     {
         float range = Random.Range(0f, 14f);
         Vector3 sunspawncoords = new Vector3(range, 0, 1);
-        Instantiate(Sun,sunspawncoords,Quaternion.identity); 
+        Instantiate(Sun,sunspawncoords,Quaternion.identity);
+        Debug.Log("sun made normally");
     }
-    public void makeSunViaPlant(Vector3 position)
-    {
-        Instantiate(Sun,position,Quaternion.identity);
-    }
+
 }
