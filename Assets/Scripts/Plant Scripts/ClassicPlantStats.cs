@@ -5,7 +5,7 @@ public class ClassicPlantStats : MonoBehaviour
 {
 
     public int maxHealth = 100;
-    public double fireCooldown = 2;
+    public float fireCooldown = 2f;
     public int currentHealth;
     private void Awake()
     {
