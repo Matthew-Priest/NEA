@@ -18,6 +18,7 @@ public class placePlant : MonoBehaviour
     public Dictionary<Vector3, GameObject> vectorGameObjectPairs = new Dictionary<Vector3, GameObject>();
     public Vector3 centralcoords;
     public displaySun sunscript;
+    private static Vector3 invalidTile = new Vector3(-999, -999, 0);
     void Start()
     {
         sunscript = Object.FindFirstObjectByType<displaySun>(); //code used to link something to the script
@@ -41,7 +42,7 @@ public class placePlant : MonoBehaviour
     }
     public Vector3 createcentralcoords(Vector3 mouseworldPosition)
     {
-        Vector3 correctPlacement = Vector3.zero; //to avoid returning a null vector3 if the if statement conditions are never met
+        Vector3 correctPlacement = invalidTile; //to avoid returning a null vector3 if the if statement conditions are never met
         for (int i = 0; i < 8; i++)
         {
             for (int j = 0; j < 5; j++)
@@ -67,17 +68,20 @@ public class placePlant : MonoBehaviour
     {
         bool tileoccupied = vectorGameObjectPairs.ContainsKey(worldCoords);
 
-            if (plant_Manager.isRemovingPlant)
+            if (plant_Manager.isRemovingPlant) //check if shovel mode
             {
                 return tileoccupied;
             }
-            else if (tileoccupied)
+            else if (tileoccupied) //assumes place mode
             {
                 return false;
             }
-        
+            if (worldCoords.x < -2 || worldCoords.y > 2)
+            {
+                return false;
+            }
 
-        if (sunscript.outputSun() < plantPrices[plant_Manager.selectedPlantIndex])
+        if (sunscript.outputSun() < plantPrices[plant_Manager.selectedPlantIndex]) //checks if balance is enough
         {
             return false;
         }
@@ -85,12 +89,17 @@ public class placePlant : MonoBehaviour
     }
     public void plantPlacer()
     {
-        Vector3 centraltile = Vector3.zero;
+        Vector3 centraltile = invalidTile; //to avoid null errors but cannot use 0,0,0 as this is a valid tile coordinate
         mouseworldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); //changes mouse coords from screen coords to world coords
         mouseworldPosition.z = 0; //2D 
         Debug.Log("Mouse screen pos: " + Input.mousePosition);
         Debug.Log("Mouse world pos: " + mouseworldPosition);
         centraltile = createcentralcoords(mouseworldPosition);
+        if (centraltile == invalidTile)
+        {
+            Debug.Log("placement outside grid");
+            return;
+        }
         if (checkEmpty(centraltile))
        {
             if ((plant_Manager.selectedPlantIndex == -1 && plant_Manager.isRemovingPlant == false)|| plant_Manager.selectedPlantIndex >= plant_Manager.Instance.plantPrefabs.Length)
@@ -105,21 +114,19 @@ public class placePlant : MonoBehaviour
     
     void createplant(Vector3 correctPlacement)
     {
-       
             GameObject newPlant = Instantiate(plant_Manager.Instance.plantPrefabs[plant_Manager.selectedPlantIndex], correctPlacement, Quaternion.identity);
             Debug.Log("object created");
             vectorGameObjectPairs.Add(correctPlacement, newPlant);
 
             sunscript.decrementSun(plantPrices[plant_Manager.selectedPlantIndex]);
         
-  
     }
 
     void Removeplant()
     {
         mouseworldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); //changes mouse coords from screen coords to world coords
         mouseworldPosition.z = 0; //2D
-        Vector3 correctPlacement = Vector3.zero;
+        Vector3 correctPlacement = Vector3.zero; //to avoid null errors
         correctPlacement = createcentralcoords(mouseworldPosition);
         if(vectorGameObjectPairs.TryGetValue(correctPlacement, out GameObject plant))
         {
