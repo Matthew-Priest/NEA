@@ -3,6 +3,7 @@ using UnityEngine;
 public class plant_Manager : MonoBehaviour
 {
     public static plant_Manager Instance;
+    public static bool isRemovingPlant = false;
 
     public GameObject[] plantPrefabs; // creates array to be filled with prefabs of plants
 

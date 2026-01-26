@@ -1,5 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine.Tilemaps;
 
 public class placePlant : MonoBehaviour
 {
@@ -12,70 +15,31 @@ public class placePlant : MonoBehaviour
     public int minX;
     public int maxY;
     public int minY;
-    public Vector3[] fulltiles = new Vector3[40]; //assigned
-    public int freespacepointer = 0;
+    public Dictionary<Vector3, GameObject> vectorGameObjectPairs = new Dictionary<Vector3, GameObject>();
     public Vector3 centralcoords;
     public displaySun sunscript;
     void Start()
     {
         sunscript = Object.FindFirstObjectByType<displaySun>(); //code used to link something to the script
     }
-    public void plantPlacer()
-    {
-        
-        mouseworldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); //changes mouse coords from screen coords to world coords
-        mouseworldPosition.z = 0; //2D 
-        Debug.Log("Mouse screen pos: " + Input.mousePosition);
-        Debug.Log("Mouse world pos: " + mouseworldPosition);
-
-        if (checkEmpty(createcentralcoords(mouseworldPosition)))
-       {
-            if (plant_Manager.selectedPlantIndex < 0 || plant_Manager.selectedPlantIndex >= plant_Manager.Instance.plantPrefabs.Length)
-            {
-                Debug.LogError("Invalid plant index: " + plant_Manager.selectedPlantIndex);
-                return;
-            }
-            placeplant(createcentralcoords(mouseworldPosition));
-       }
-    }
-    public bool checkEmpty(Vector3 worldCoords)
-    {
-        for (int i = 0; i < fulltiles.Length; i++)
-        {
-            if (fulltiles[i] == worldCoords)
-            {
-                return false;
-            }
-        }
-        if (sunscript.outputSun() < plantPrices[plant_Manager.selectedPlantIndex])
-        {
-            return false;
-        }
-        return true;
-    }
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && plant_Manager.selectedPlantIndex != -1) //ensures that a plant isn't placed when clicking plant button
+        if (Input.GetMouseButtonDown(0) && plant_Manager.selectedPlantIndex != -1 && plant_Manager.isRemovingPlant == false) //ensures that a plant isn't placed when clicking plant button
         {
             Debug.Log("click registered");
             plantPlacer();
             plant_Manager.selectedPlantIndex = -1; //choice resets after placing
             Debug.Log("choice reset");
         }
-    }
-    void placeplant(Vector3 correctPlacement)
-    {
-
-         Instantiate(plant_Manager.Instance.plantPrefabs[plant_Manager.selectedPlantIndex],correctPlacement, Quaternion.identity);
-         Debug.Log("object created");
-         fulltiles[freespacepointer] = correctPlacement;
-        if (freespacepointer < 39)
+        else if (Input.GetMouseButtonDown(0) && plant_Manager.selectedPlantIndex == -1 && plant_Manager.isRemovingPlant == true)
         {
-            freespacepointer += 1;
+            Debug.Log("click registered");
+            Removeplant();
+            plant_Manager.selectedPlantIndex = -1; //choice resets after placing
+            Debug.Log("choice reset");
         }
-        sunscript.decrementSun(plantPrices[plant_Manager.selectedPlantIndex]);  
     }
-    public Vector3 createcentralcoords(Vector3 mouseworldPosition) 
+    public Vector3 createcentralcoords(Vector3 mouseworldPosition)
     {
         Vector3 correctPlacement = Vector3.zero; //to avoid returning a null vector3 if the if statement conditions are never met
         for (int i = 0; i < 8; i++)
@@ -97,6 +61,73 @@ public class placePlant : MonoBehaviour
             }
         }
         return correctPlacement;
+
+    }
+    public bool checkEmpty(Vector3 worldCoords)
+    {
+        bool tileoccupied = vectorGameObjectPairs.ContainsKey(worldCoords);
+
+            if (plant_Manager.isRemovingPlant)
+            {
+                return tileoccupied;
+            }
+            else if (tileoccupied)
+            {
+                return false;
+            }
+        
+
+        if (sunscript.outputSun() < plantPrices[plant_Manager.selectedPlantIndex])
+        {
+            return false;
+        }
+        return true;
+    }
+    public void plantPlacer()
+    {
+        Vector3 centraltile = Vector3.zero;
+        mouseworldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); //changes mouse coords from screen coords to world coords
+        mouseworldPosition.z = 0; //2D 
+        Debug.Log("Mouse screen pos: " + Input.mousePosition);
+        Debug.Log("Mouse world pos: " + mouseworldPosition);
+        centraltile = createcentralcoords(mouseworldPosition);
+        if (checkEmpty(centraltile))
+       {
+            if ((plant_Manager.selectedPlantIndex == -1 && plant_Manager.isRemovingPlant == false)|| plant_Manager.selectedPlantIndex >= plant_Manager.Instance.plantPrefabs.Length)
+            {
+                Debug.LogError("Invalid plant index: " + plant_Manager.selectedPlantIndex);
+                return;
+            }
+            createplant(centraltile);
+       }
+    }
+
+    
+    void createplant(Vector3 correctPlacement)
+    {
+       
+            GameObject newPlant = Instantiate(plant_Manager.Instance.plantPrefabs[plant_Manager.selectedPlantIndex], correctPlacement, Quaternion.identity);
+            Debug.Log("object created");
+            vectorGameObjectPairs.Add(correctPlacement, newPlant);
+
+            sunscript.decrementSun(plantPrices[plant_Manager.selectedPlantIndex]);
+        
+  
+    }
+
+    void Removeplant()
+    {
+        mouseworldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); //changes mouse coords from screen coords to world coords
+        mouseworldPosition.z = 0; //2D
+        Vector3 correctPlacement = Vector3.zero;
+        correctPlacement = createcentralcoords(mouseworldPosition);
+        if(vectorGameObjectPairs.TryGetValue(correctPlacement, out GameObject plant))
+        {
+            Destroy(plant);
+            vectorGameObjectPairs.Remove(correctPlacement);
+            plant_Manager.isRemovingPlant = false;
+        }
+
 
     }
 
