@@ -9,7 +9,7 @@ public class PeashooterStats : ClassicPlantStats
     void Start()
     {
         
-        fireCooldown = 1.425f;
+        fireCooldown = 4f;
         maxHealth = 60;
     }
     private void Update()
@@ -22,7 +22,7 @@ public class PeashooterStats : ClassicPlantStats
             {
                 enemy = z; //assigns this enemy as the enemy to shoot at
                 inLane = true; //marks that zombie is in this lane
-                Debug.Log("Zombie detected in lane");
+                
                 break;//stops checking once a zombie is found in the lane
             }
         }

@@ -10,7 +10,7 @@ public class SpawnZombies : MonoBehaviour
 
     public int MaxSpawnCount = 20;
     public int SpawnCount = 0;
-    public float spawnInterval = 15f;
+    public float spawnInterval = 12f;
     public float timer;
 
     private void Update()
