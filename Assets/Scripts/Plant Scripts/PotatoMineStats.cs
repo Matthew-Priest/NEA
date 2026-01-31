@@ -5,6 +5,7 @@ public class PotatoMineStats : ClassicPlantStats
     public GameObject enemy;
     public float explosionRadius = 2f;
     public LayerMask enemyLayer;
+    public placePlant removePlant;
     private void explode()
     {
         /*Vector3 position = gameObject.transform.position;
@@ -22,6 +23,8 @@ public class PotatoMineStats : ClassicPlantStats
             Destroy(enemy.gameObject);
         }
         Destroy(gameObject);
+        Vector3 coords = transform.position;
+        removePlant.vectorGameObjectPairs.Remove(coords);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -29,6 +32,10 @@ public class PotatoMineStats : ClassicPlantStats
         {
             explode();
         }
+    }
+    private void Start()
+    {
+        removePlant = Object.FindFirstObjectByType<placePlant>();
     }
 
 }
