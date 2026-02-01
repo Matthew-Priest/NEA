@@ -12,6 +12,7 @@ public class SpawnZombies : MonoBehaviour
     public int SpawnCount = 0;
     public float spawnInterval = 12f;
     public float timer;
+    public int killCount = 0;
 
     private void Update()
     {
@@ -20,6 +21,7 @@ public class SpawnZombies : MonoBehaviour
         {
             timer = spawnInterval;
             spawnZombie();
+            
         }
     }
     private void spawnZombie()
@@ -28,6 +30,6 @@ public class SpawnZombies : MonoBehaviour
         Transform selectedrow = spawnPoints[randnum - 1];
         //Debug.Log(randnum);
         Instantiate(ZombiePrefab, selectedrow.position, Quaternion.identity);
-        SpawnCount+= 1;
+        SpawnCount += 1;
     }
 }

@@ -9,6 +9,8 @@ public class Zombie : Entity
     public ClassicPlantStats plantStats;
     private float maxHealth = 50f;
     private float currentHealth;
+    public SpawnZombies killCount;
+
     void Update()
     {
        if(inCollision == false)
@@ -27,13 +29,15 @@ public class Zombie : Entity
         if(currentHealth <= 0)
         {
             Destroy(gameObject);
+            killCount.killCount += 1;
         }
     }
     private void Awake()
     {
         inCollision = false;
         currentHealth = maxHealth;
-    }
+        
+}
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Plant"))
@@ -55,5 +59,9 @@ public class Zombie : Entity
     {
         currentHealth -= 10;
         Debug.Log($"{gameObject.name} took 10 damage");
+    }
+    private void Start()
+    {
+        killCount = Object.FindFirstObjectByType<SpawnZombies>();
     }
 }
