@@ -17,7 +17,9 @@ public class loseScreen : MonoBehaviour
     }
     public void menu()
     {
+        Time.timeScale = 1;
         SceneManager.LoadSceneAsync(1);
+        
     }
 
 }

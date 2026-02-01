@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,6 +17,8 @@ public class winScreen : MonoBehaviour
     }
     public void menu()
     {
+        Time.timeScale = 1;
         SceneManager.LoadSceneAsync(1);
+        
     }
 }

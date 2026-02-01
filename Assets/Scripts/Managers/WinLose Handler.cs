@@ -25,7 +25,7 @@ public class WinLoseHandler : MonoBehaviour
                 lose.stopGame();
             }
         }
-        if (zombieManager.killCount >= zombieManager.SpawnCount)
+        if (zombieManager.killCount >= zombieManager.MaxSpawnCount)
         {
             win.stopGame();
         }
