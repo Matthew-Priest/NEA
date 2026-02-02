@@ -3,7 +3,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     
-    private float Speed = 1f;
+    private float Speed = 2f; 
     public Zombie zombieScript;
     void Update()
     {

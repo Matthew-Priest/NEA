@@ -10,14 +10,14 @@ public class SpawnZombies : MonoBehaviour
 
     public int MaxSpawnCount = 20;
     public int SpawnCount = 0;
-    public float spawnInterval = 12f;
+    private float spawnInterval = 12f; //12
     public float timer;
     public int killCount;
 
     private void Update()
     {
         timer -= Time.deltaTime;
-        if (timer <= 0 && SpawnCount < MaxSpawnCount) 
+        if (timer <= 0) 
         {
             timer = spawnInterval;
             spawnZombie();
@@ -26,11 +26,15 @@ public class SpawnZombies : MonoBehaviour
     }
     private void spawnZombie()
     {
-        int randnum = Random.Range(1, 6);
-        Transform selectedrow = spawnPoints[randnum - 1];
-        //Debug.Log(randnum);
-        Instantiate(ZombiePrefab, selectedrow.position, Quaternion.identity);
-        SpawnCount += 1;
+        if (SpawnCount < MaxSpawnCount)
+        {
+            int randnum = Random.Range(1, 6);
+            Transform selectedrow = spawnPoints[randnum - 1];
+            Instantiate(ZombiePrefab, selectedrow.position, Quaternion.identity);
+            SpawnCount += 1;
+            Debug.Log(SpawnCount);
+        }
+
     }
     private void Start()
     {

@@ -9,7 +9,7 @@ public class PeashooterStats : ClassicPlantStats
     void Start()
     {
         
-        fireCooldown = 4f;
+        fireCooldown = 5f;
         maxHealth = 60;
         currentHealth = maxHealth;
     }
