@@ -5,6 +5,7 @@ public class WallnutStats : ClassicPlantStats
     private void Start()
     {
         maxHealth = 200;
+        currentHealth = maxHealth;
     }
     
 }

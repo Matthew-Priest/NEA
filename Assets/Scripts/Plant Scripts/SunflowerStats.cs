@@ -8,6 +8,7 @@ public class SunflowerStats : ClassicPlantStats
     private void Start()
     {
         maxHealth = 40;
+        currentHealth = maxHealth;
     }
     private void Update()
     {

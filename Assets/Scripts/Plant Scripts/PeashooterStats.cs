@@ -11,6 +11,7 @@ public class PeashooterStats : ClassicPlantStats
         
         fireCooldown = 4f;
         maxHealth = 60;
+        currentHealth = maxHealth;
     }
     private void Update()
     {

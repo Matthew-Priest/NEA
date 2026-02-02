@@ -5,7 +5,6 @@ public class PotatoMineStats : ClassicPlantStats
     public GameObject enemy;
     public float explosionRadius = 2f;
     public LayerMask enemyLayer;
-    public placePlant removePlant;
     private void explode()
     {
         /*Vector3 position = gameObject.transform.position;
