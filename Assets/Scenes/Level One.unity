@@ -964,6 +964,7 @@ MonoBehaviour:
   maxHealth: 100
   fireCooldown: 2
   currentHealth: 0
+  removePlant: {fileID: 0}
   enemy: {fileID: 1243754375}
   projectile: {fileID: 760663656}
 --- !u!1 &226566827
@@ -2191,7 +2192,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.3647059, g: 0.6156863, b: 0.3647059, a: 1}
+  m_Color: {r: 0.24705882, g: 0.67058825, b: 0.2509804, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3236,9 +3237,8 @@ MonoBehaviour:
   - {fileID: 1474869155}
   - {fileID: 242568310}
   - {fileID: 473630473}
-  MaxSpawnCount: 50
+  MaxSpawnCount: 20
   SpawnCount: 0
-  spawnInterval: 15
   timer: 0
   killCount: 0
 --- !u!4 &595465541
@@ -4380,12 +4380,14 @@ MonoBehaviour:
   maxHealth: 100
   fireCooldown: 2
   currentHealth: 0
+  removePlant: {fileID: 0}
   enemy: {fileID: 1243754375}
   explosionRadius: 2
   enemyLayer:
     serializedVersion: 2
     m_Bits: 1
-  removePlant: {fileID: 0}
+  killcount: {fileID: 0}
+  mineactive: {fileID: 0}
 --- !u!58 &820005883
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -4422,6 +4424,23 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 1
+--- !u!114 &820005884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820005874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b7291f910eea8847af2d3c1be62e682, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: 10
+  isArmed: 0
+  unarmedSprite: {fileID: -304355098156736027, guid: 81e54ba5e348fbe48b1ce67fec3fd775, type: 3}
+  armedSprite: {fileID: -2316878595060486802, guid: 6ece5103acfc54d478d8aeba2b1400a9, type: 3}
+  m_spriterenderer: {fileID: 0}
 --- !u!1 &826900669
 GameObject:
   m_ObjectHideFlags: 0
@@ -5810,6 +5829,7 @@ MonoBehaviour:
   maxHealth: 100
   fireCooldown: 2
   currentHealth: 100
+  removePlant: {fileID: 0}
   timer: 10
   generationCooldown: 10
   sunscript: {fileID: 488579745}
@@ -8197,6 +8217,7 @@ MonoBehaviour:
   maxHealth: 100
   fireCooldown: 2
   currentHealth: 0
+  removePlant: {fileID: 0}
 --- !u!1 &1345140398
 GameObject:
   m_ObjectHideFlags: 0
@@ -12139,6 +12160,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 643613309}
     m_Modifications:
+    - target: {fileID: 2765321921006538304, guid: 32efd5ccbab9bfa43a7ab20b069c1b0f, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2765321921006538304, guid: 32efd5ccbab9bfa43a7ab20b069c1b0f, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -2007595651
+      objectReference: {fileID: 0}
     - target: {fileID: 3007460980655414370, guid: 32efd5ccbab9bfa43a7ab20b069c1b0f, type: 3}
       propertyPath: m_Name
       value: sun image
@@ -12451,11 +12480,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6732128383242445172, guid: fa704b017b716534a9624cf8ff093824, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.1
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 6732128383242445172, guid: fa704b017b716534a9624cf8ff093824, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.1
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 6732128383242445172, guid: fa704b017b716534a9624cf8ff093824, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12522,6 +12551,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3061415596109377615, guid: fa704b017b716534a9624cf8ff093824, type: 3}
       insertIndex: -1
       addedObject: {fileID: 820005883}
+    - targetCorrespondingSourceObject: {fileID: 3061415596109377615, guid: fa704b017b716534a9624cf8ff093824, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 820005884}
   m_SourcePrefab: {fileID: 100100000, guid: fa704b017b716534a9624cf8ff093824, type: 3}
 --- !u!1001 &6220475597981501174
 PrefabInstance:

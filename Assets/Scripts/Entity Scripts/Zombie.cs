@@ -7,7 +7,7 @@ public class Zombie : Entity
     public float attackCooldown = 3;
     public float timer = 3;
     public ClassicPlantStats plantStats;
-    private float maxHealth = 50f;
+    private float maxHealth = 80f;
     private float currentHealth;
     public SpawnZombies killCount;
 
@@ -34,6 +34,7 @@ public class Zombie : Entity
     }
     private void Awake()
     {
+        Speed = 0.3f;
         inCollision = false;
         currentHealth = maxHealth;
         
