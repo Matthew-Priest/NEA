@@ -8,8 +8,8 @@ public class PeashooterStats : ClassicPlantStats
     private float timer = 1.425f;
     void Start()
     {
-        
-        fireCooldown = 5f;
+
+        //fireCooldown = lvl1Settings.attackCooldown;
         maxHealth = 60;
         currentHealth = maxHealth;
     }
