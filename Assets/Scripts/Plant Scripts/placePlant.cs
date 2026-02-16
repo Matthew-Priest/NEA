@@ -136,6 +136,9 @@ public class placePlant : MonoBehaviour
             plant_Manager.isRemovingPlant = false;
             float index = -correctPlacement.y / 2; //
             rowValue[Mathf.RoundToInt(index)] -= plantPrices[1, plant_Manager.selectedPlantIndex]; //
+        } else
+        {
+            plant_Manager.isRemovingPlant = false;
         }
 
 

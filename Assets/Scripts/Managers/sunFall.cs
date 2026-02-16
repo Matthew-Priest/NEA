@@ -8,6 +8,8 @@ public class sunFall : MonoBehaviour
     private void Start()
     {
         stopY = Random.Range(-9f, 0);
+        transform.position = new Vector3(transform.position.x, transform.position.y, 5);
+        Debug.Log(transform.position);
     }
     void Update()
     {
