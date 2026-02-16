@@ -5,12 +5,26 @@ public class PeashooterStats : ClassicPlantStats
     public GameObject enemy;
     public GameObject projectile;
     private bool inLane;
-    private float timer = 1.425f;
+    private float timer;
     void Start()
     {
+        timer = fireCooldown;
+        if (sceneName == "Level one")
+        {
+            maxHealth = lvl1.peahealth;
+            Debug.Log(maxHealth);
+            fireCooldown = lvl1.attackCooldown;
+            Debug.Log(fireCooldown);
+        }
+        else if (sceneName == "Level two")
+        {
 
+        }
+        else if (sceneName == "Level three")
+        {
+
+        }
         //fireCooldown = lvl1Settings.attackCooldown;
-        maxHealth = 60;
         currentHealth = maxHealth;
     }
     private void Update()
@@ -39,7 +53,7 @@ public class PeashooterStats : ClassicPlantStats
         {
             Instantiate(projectile, gameObject.transform.position, Quaternion.identity);
             timer = fireCooldown;
-            Debug.Log("projectile created");
+            //Debug.Log("projectile created");
         }
     }
 }

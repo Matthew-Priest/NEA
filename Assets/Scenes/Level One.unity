@@ -962,9 +962,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  fireCooldown: 2
+  fireCooldown: 10
   currentHealth: 0
   removePlant: {fileID: 0}
+  lvl1: {fileID: 0}
+  sceneName: 
   enemy: {fileID: 1243754375}
   projectile: {fileID: 760663656}
 --- !u!1 &226566827
@@ -1352,6 +1354,62 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LoseUI: {fileID: 261390077}
+--- !u!1 &264863064
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 264863066}
+  - component: {fileID: 264863065}
+  m_Layer: 0
+  m_Name: Lvl1Settings
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &264863065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264863064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a61e62e3abc9920418ff8fdb980c2cc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generationCooldown: 17
+  SpawnCooldown: 12
+  MaxSpawnCount: 20
+  attackCooldown: 5
+  damage: 10
+  peahealth: 70
+  potatohealth: 25
+  wallnuthealth: 200
+  sunflowerhealth: 40
+  sunburst: 0
+  zombiespeed: 0.3
+  Attributes: {fileID: 0}
+--- !u!4 &264863066
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264863064}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.5449432, y: -2.6068544, z: -0.028638981}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &280612733
 GameObject:
   m_ObjectHideFlags: 0
@@ -3272,6 +3330,7 @@ MonoBehaviour:
   timer: 0
   SpawnCount: 0
   Sun: {fileID: 2068192101}
+  lvl1: {fileID: 0}
 --- !u!1 &556880813
 GameObject:
   m_ObjectHideFlags: 0
@@ -3641,7 +3700,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddcbec5cc711464468e48637956ef64c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lvl1: {fileID: 0}
   ZombiePrefab: {fileID: 1243754375}
+  placePlant: {fileID: 0}
   spawnPoints:
   - {fileID: 1846591701}
   - {fileID: 710382034}
@@ -3913,13 +3974,13 @@ MonoBehaviour:
   mouseworldPosition: {x: 0, y: 0, z: 0}
   xgridborders: ffffffff01000000030000000500000007000000090000000b0000000d0000000f000000
   ygridborders: 01000000fffffffffdfffffffbfffffff9fffffff7ffffff
-  plantPrices: 64000000320000003200000019000000
   maxX: 0
   minX: 0
   maxY: 0
   minY: 0
   centralcoords: {x: 0, y: 0, z: 0}
   sunscript: {fileID: 0}
+  rowValue: 0000000000000000000000000000000000000000
 --- !u!4 &628204980
 Transform:
   m_ObjectHideFlags: 0
@@ -4789,9 +4850,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  fireCooldown: 2
+  fireCooldown: 10
   currentHealth: 0
   removePlant: {fileID: 0}
+  lvl1: {fileID: 0}
+  sceneName: 
   enemy: {fileID: 1243754375}
   explosionRadius: 2
   enemyLayer:
@@ -6238,10 +6301,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  fireCooldown: 2
+  fireCooldown: 10
   currentHealth: 100
   removePlant: {fileID: 0}
-  timer: 10
+  lvl1: {fileID: 0}
+  sceneName: 
+  regulartimer: 10
+  burstTimer: 20
   generationCooldown: 10
   sunscript: {fileID: 488579745}
 --- !u!1 &955145053
@@ -7649,8 +7715,11 @@ MonoBehaviour:
   Speed: 0.2
   attackCooldown: 3
   timer: 0
-  plantStats: {fileID: 0}
+  currentHealth: 0
   killCount: {fileID: 0}
+  plantStats: {fileID: 0}
+  lvl1: {fileID: 0}
+  damageTaken: 0
 --- !u!4 &1243754380 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7773205072462846127, guid: e5899ef544e8bbe4981176ef1615dd28, type: 3}
@@ -8831,9 +8900,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  fireCooldown: 2
+  fireCooldown: 10
   currentHealth: 0
   removePlant: {fileID: 0}
+  lvl1: {fileID: 0}
+  sceneName: 
 --- !u!1 &1345140398
 GameObject:
   m_ObjectHideFlags: 0
@@ -10885,6 +10956,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WinUI: {fileID: 2090199210}
+  Attributes: {fileID: 0}
 --- !u!4 &1731715702
 Transform:
   m_ObjectHideFlags: 0
@@ -12872,6 +12944,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WinUI: {fileID: 2090199210}
+  Attributes: {fileID: 0}
 --- !u!1 &2092285879
 GameObject:
   m_ObjectHideFlags: 0
@@ -13834,3 +13907,4 @@ SceneRoots:
   - {fileID: 643613309}
   - {fileID: 1177186810}
   - {fileID: 1731715702}
+  - {fileID: 264863066}

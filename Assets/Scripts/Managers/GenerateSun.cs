@@ -1,13 +1,17 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GenerateSun : MonoBehaviour
 {
     public float timer;
     public int SpawnCount = 0;
     public GameObject Sun;
+    string sceneName;
+    int maxTime;
+    public lvl1Settings lvl1;
     private void Update()
     {
-        int rng = Random.Range(10, 17);
+        int rng = Random.Range(10, maxTime); // timer to generate
         timer -= Time.deltaTime;
         if (timer <= 0)
         {
@@ -17,10 +21,28 @@ public class GenerateSun : MonoBehaviour
     }
     private void makeSun()
     {
-        float range = Random.Range(0f, 14f);
+        float range = Random.Range(0f, 14f); // x coords
         Vector3 sunspawncoords = new Vector3(range, 0, 1);
         Instantiate(Sun,sunspawncoords,Quaternion.identity);
         Debug.Log("sun made normally");
+    }
+    private void Start()
+    {
+        lvl1 = Object.FindFirstObjectByType<lvl1Settings>();
+        sceneName = SceneManager.GetActiveScene().name;       
+        if (sceneName == "Level one")
+        {
+            maxTime = Mathf.RoundToInt(lvl1.generationCooldown);
+            Debug.Log(maxTime);
+        }
+        else if (sceneName == "Level two")
+        {
+
+        }
+        else if (sceneName == "Level three")
+        {
+
+        }
     }
 
 }

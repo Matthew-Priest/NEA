@@ -2,14 +2,16 @@ using JetBrains.Annotations;
 using System;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SpawnZombies : MonoBehaviour
 {
+    public lvl1Settings lvl1;
     public GameObject ZombiePrefab;
     public placePlant placePlant;
     public Transform[] spawnPoints;
-
-    public int MaxSpawnCount = 20;
+    string sceneName;
+    public int MaxSpawnCount;
     public int SpawnCount = 0;
     private float spawnInterval = 12f; 
     public float timer;
@@ -28,9 +30,7 @@ public class SpawnZombies : MonoBehaviour
             } else
             {
                 spawnZombie();
-            }
-                
-            
+            }            
         }
     }
     private void spawnZombie()
@@ -40,15 +40,27 @@ public class SpawnZombies : MonoBehaviour
             int randnum = UnityEngine.Random.Range(1, 6);
             Transform selectedrow = spawnPoints[randnum - 1];
             Instantiate(ZombiePrefab, selectedrow.position, Quaternion.identity);
-            Debug.Log("placed normally");
+            Debug.Log("placed zombie normally");
             SpawnCount += 1;
-            Debug.Log(SpawnCount);
+            //Debug.Log(SpawnCount);
         }
     }
     private void Start()
     {
         killCount = 0;
         placePlant = UnityEngine.Object.FindFirstObjectByType<placePlant>();
+        if (sceneName == "Level one")
+        {
+            spawnInterval = lvl1.SpawnCooldown;
+        }
+        else if (sceneName == "Level two")
+        {
+
+        }
+        else if (sceneName == "Level three")
+        {
+
+        }
     }
     private void attackLeastDefendedLane()
     {
@@ -68,6 +80,24 @@ public class SpawnZombies : MonoBehaviour
             Instantiate(ZombiePrefab, selectedrow.position, Quaternion.identity);
             Debug.Log("placed by AI");
             SpawnCount += 1;
+        }
+
+    }
+    private void Awake()
+    {
+        lvl1 = UnityEngine.Object.FindFirstObjectByType<lvl1Settings>();
+        sceneName = SceneManager.GetActiveScene().name;
+        if (sceneName == "Level one")
+        {
+            MaxSpawnCount = lvl1.SpawnCooldown;
+        }
+        else if (sceneName == "Level two")
+        {
+
+        }
+        else if (sceneName == "Level three")
+        {
+
         }
 
     }

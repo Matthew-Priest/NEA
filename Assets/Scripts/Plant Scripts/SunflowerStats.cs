@@ -1,23 +1,43 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SunflowerStats : ClassicPlantStats
 {
-    public float timer = 10;
+    public float regulartimer = 10;
+    public float burstTimer = 20;
     public float generationCooldown = 10;
     public GenerateSunViaPlant sunscript;
     private void Start()
     {
-        maxHealth = 40;
+        if (sceneName == "Level one")
+        {
+            maxHealth = lvl1.sunflowerhealth;
+            Debug.Log(maxHealth);
+        }
+        else if (sceneName == "Level two")
+        {
+            
+        }
+        else if (sceneName == "Level three")
+        {
+            
+        }
+        
         currentHealth = maxHealth;
     }
     private void Update()
     {
-        
-        timer -= Time.deltaTime;
-        if (timer <= 0)
+        burstTimer -= Time.deltaTime;
+        regulartimer -= Time.deltaTime;
+        if (regulartimer <= 0)
         {           
             sunscript.makeSunViaPlant(transform.position);
-            timer = generationCooldown;
+            regulartimer = generationCooldown;
+        }
+        if(lvl1.sunburst == true && burstTimer <= 0)
+        {
+            sunscript.sunBurst(transform.position);
+            burstTimer = 20;    
         }
     }
 }

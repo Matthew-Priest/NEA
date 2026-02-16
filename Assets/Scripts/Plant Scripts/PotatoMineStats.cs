@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PotatoMineStats : ClassicPlantStats
 {
@@ -8,6 +9,8 @@ public class PotatoMineStats : ClassicPlantStats
     public LayerMask enemyLayer;
     public SpawnZombies killcount;
     public ActivateMine mineactive;
+
+    
     private void explode()
     {
         Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, explosionRadius, enemyLayer);
@@ -33,11 +36,23 @@ public class PotatoMineStats : ClassicPlantStats
     }
     private void Start()
     {
-        killcount = Object.FindFirstObjectByType<SpawnZombies>();
-        removePlant = Object.FindFirstObjectByType<placePlant>();
-        mineactive = Object.FindFirstObjectByType<ActivateMine>();
-        maxHealth = 30;
-        currentHealth = maxHealth;
+        //removePlant = Object.FindFirstObjectByType<placePlant>();
+        if (sceneName == "Level one")
+        {
+            maxHealth = lvl1.potatohealth;
+            Debug.Log(maxHealth);
+        }
+        else if (sceneName == "Level two")
+        {
 
+        }
+        else if (sceneName == "Level three")
+        {
+
+        }
+        
+        currentHealth = maxHealth;
+        mineactive = Object.FindFirstObjectByType<ActivateMine>();
+        killcount = Object.FindFirstObjectByType<SpawnZombies>();
     }
 }

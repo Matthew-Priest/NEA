@@ -2592,7 +2592,7 @@ RectTransform:
   - {fileID: 1694441935}
   - {fileID: 261390078}
   - {fileID: 2090199211}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1927922360}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3642,6 +3642,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ZombiePrefab: {fileID: 1243754375}
+  placePlant: {fileID: 0}
   spawnPoints:
   - {fileID: 1846591701}
   - {fileID: 710382034}
@@ -3913,13 +3914,13 @@ MonoBehaviour:
   mouseworldPosition: {x: 0, y: 0, z: 0}
   xgridborders: ffffffff01000000030000000500000007000000090000000b0000000d0000000f000000
   ygridborders: 01000000fffffffffdfffffffbfffffff9fffffff7ffffff
-  plantPrices: 64000000320000003200000019000000
   maxX: 0
   minX: 0
   maxY: 0
   minY: 0
   centralcoords: {x: 0, y: 0, z: 0}
   sunscript: {fileID: 0}
+  rowValue: 0000000000000000000000000000000000000000
 --- !u!4 &628204980
 Transform:
   m_ObjectHideFlags: 0
@@ -11744,6 +11745,38 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1927922359
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1927922360}
+  m_Layer: 0
+  m_Name: UIManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1927922360
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927922359}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.0175056, y: -5.4830284, z: -0.0651498}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 502972067}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1965722937
 GameObject:
   m_ObjectHideFlags: 0
@@ -13827,10 +13860,10 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 294003981}
-  - {fileID: 502972067}
   - {fileID: 1759439772}
   - {fileID: 496897347}
   - {fileID: 613800420}
   - {fileID: 643613309}
   - {fileID: 1177186810}
   - {fileID: 1731715702}
+  - {fileID: 1927922360}
