@@ -13,7 +13,7 @@ public class SpawnZombies : MonoBehaviour
     string sceneName;
     public int MaxSpawnCount;
     public int SpawnCount = 0;
-    private float spawnInterval = 12f; 
+    private float spawnInterval; 
     public float timer;
     public int killCount;
 
@@ -89,7 +89,8 @@ public class SpawnZombies : MonoBehaviour
         sceneName = SceneManager.GetActiveScene().name;
         if (sceneName == "Level one")
         {
-            MaxSpawnCount = lvl1.SpawnCooldown;
+            MaxSpawnCount = lvl1.MaxSpawnCount;
+            spawnInterval = lvl1.SpawnCooldown;
         }
         else if (sceneName == "Level two")
         {

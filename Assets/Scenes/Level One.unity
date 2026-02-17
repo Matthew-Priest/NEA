@@ -962,13 +962,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  fireCooldown: 10
+  fireCooldown: 4
   currentHealth: 0
   removePlant: {fileID: 0}
   lvl1: {fileID: 0}
   sceneName: 
   enemy: {fileID: 1243754375}
   projectile: {fileID: 760663656}
+  timer: 0
 --- !u!1 &226566827
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@ public class PeashooterStats : ClassicPlantStats
     public GameObject enemy;
     public GameObject projectile;
     private bool inLane;
-    private float timer;
+    public float timer;
     void Start()
     {
         timer = fireCooldown;
