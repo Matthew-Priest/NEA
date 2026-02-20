@@ -9,6 +9,8 @@ public class GenerateSun : MonoBehaviour
     string sceneName;
     int maxTime;
     public lvl1Settings lvl1;
+    public lvl2Settings lvl2;
+    public lvl3Settings lvl3;
     private void Update()
     {
         int rng = Random.Range(10, maxTime); // timer to generate
@@ -29,6 +31,8 @@ public class GenerateSun : MonoBehaviour
     private void Start()
     {
         lvl1 = Object.FindFirstObjectByType<lvl1Settings>();
+        lvl2 = Object.FindFirstObjectByType<lvl2Settings>();
+        lvl3 = Object.FindFirstObjectByType<lvl3Settings>();
         sceneName = SceneManager.GetActiveScene().name;       
         if (sceneName == "Level one")
         {
@@ -37,11 +41,11 @@ public class GenerateSun : MonoBehaviour
         }
         else if (sceneName == "Level two")
         {
-
+            maxTime = Mathf.RoundToInt(lvl2.generationCooldown);
         }
         else if (sceneName == "Level three")
         {
-
+            maxTime = Mathf.RoundToInt(lvl3.generationCooldown);
         }
     }
 

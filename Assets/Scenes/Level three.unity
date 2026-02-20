@@ -962,11 +962,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  fireCooldown: 2
+  fireCooldown: 4
   currentHealth: 0
   removePlant: {fileID: 0}
+  lvl1: {fileID: 0}
+  lvl2: {fileID: 0}
+  lvl3: {fileID: 0}
+  sceneName: 
   enemy: {fileID: 1243754375}
   projectile: {fileID: 760663656}
+  timer: 0
 --- !u!1 &226566827
 GameObject:
   m_ObjectHideFlags: 0
@@ -1352,6 +1357,62 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LoseUI: {fileID: 261390077}
+--- !u!1 &264863064
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 264863066}
+  - component: {fileID: 264863067}
+  m_Layer: 0
+  m_Name: Lvl3Settings
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &264863066
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264863064}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.5449432, y: -2.6068544, z: -0.028638981}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &264863067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264863064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9492dc5e9489d4b87cde409ee4a229, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generationCooldown: 24
+  SpawnCooldown: 9
+  MaxSpawnCount: 30
+  attackCooldown: 4
+  damage: 15
+  peahealth: 70
+  potatohealth: 25
+  wallnuthealth: 200
+  sunflowerhealth: 40
+  sunburst: 0
+  zombiespeed: 0.36
+  Attributes: {fileID: 0}
 --- !u!1 &280612733
 GameObject:
   m_ObjectHideFlags: 0
@@ -2163,6 +2224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zombiedetected: 0
+  spawnZombies: {fileID: 0}
 --- !u!212 &481635132
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2592,7 +2654,7 @@ RectTransform:
   - {fileID: 1694441935}
   - {fileID: 261390078}
   - {fileID: 2090199211}
-  m_Father: {fileID: 1927922360}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2932,6 +2994,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zombiedetected: 0
+  spawnZombies: {fileID: 0}
 --- !u!212 &531923679
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3272,6 +3335,9 @@ MonoBehaviour:
   timer: 0
   SpawnCount: 0
   Sun: {fileID: 2068192101}
+  lvl1: {fileID: 0}
+  lvl2: {fileID: 0}
+  lvl3: {fileID: 0}
 --- !u!1 &556880813
 GameObject:
   m_ObjectHideFlags: 0
@@ -3641,6 +3707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddcbec5cc711464468e48637956ef64c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lvl1: {fileID: 0}
   ZombiePrefab: {fileID: 1243754375}
   placePlant: {fileID: 0}
   spawnPoints:
@@ -3649,6 +3716,8 @@ MonoBehaviour:
   - {fileID: 1474869155}
   - {fileID: 242568310}
   - {fileID: 473630473}
+  lvl2: {fileID: 0}
+  lvl3: {fileID: 0}
   MaxSpawnCount: 20
   SpawnCount: 0
   timer: 0
@@ -4790,9 +4859,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  fireCooldown: 2
+  fireCooldown: 10
   currentHealth: 0
   removePlant: {fileID: 0}
+  lvl1: {fileID: 0}
+  lvl2: {fileID: 0}
+  lvl3: {fileID: 0}
+  sceneName: 
   enemy: {fileID: 1243754375}
   explosionRadius: 2
   enemyLayer:
@@ -6239,10 +6312,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  fireCooldown: 2
+  fireCooldown: 10
   currentHealth: 100
   removePlant: {fileID: 0}
-  timer: 10
+  lvl1: {fileID: 0}
+  lvl2: {fileID: 0}
+  lvl3: {fileID: 0}
+  sceneName: 
+  regulartimer: 10
+  burstTimer: 20
   generationCooldown: 10
   sunscript: {fileID: 488579745}
 --- !u!1 &955145053
@@ -7116,6 +7194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zombiedetected: 0
+  spawnZombies: {fileID: 0}
 --- !u!212 &1139186118
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7650,8 +7729,13 @@ MonoBehaviour:
   Speed: 0.2
   attackCooldown: 3
   timer: 0
-  plantStats: {fileID: 0}
+  currentHealth: 0
   killCount: {fileID: 0}
+  plantStats: {fileID: 0}
+  lvl1: {fileID: 0}
+  lvl2: {fileID: 0}
+  lvl3: {fileID: 0}
+  damageTaken: 0
 --- !u!4 &1243754380 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7773205072462846127, guid: e5899ef544e8bbe4981176ef1615dd28, type: 3}
@@ -8832,9 +8916,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  fireCooldown: 2
+  fireCooldown: 10
   currentHealth: 0
   removePlant: {fileID: 0}
+  lvl1: {fileID: 0}
+  lvl2: {fileID: 0}
+  lvl3: {fileID: 0}
+  sceneName: 
 --- !u!1 &1345140398
 GameObject:
   m_ObjectHideFlags: 0
@@ -9093,6 +9181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zombiedetected: 0
+  spawnZombies: {fileID: 0}
 --- !u!212 &1401970044
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10886,6 +10975,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WinUI: {fileID: 2090199210}
+  Attributes: {fileID: 0}
 --- !u!4 &1731715702
 Transform:
   m_ObjectHideFlags: 0
@@ -11028,6 +11118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zombiedetected: 0
+  spawnZombies: {fileID: 0}
 --- !u!212 &1802142192
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11745,38 +11836,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1927922359
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1927922360}
-  m_Layer: 0
-  m_Name: UIManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1927922360
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1927922359}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.0175056, y: -5.4830284, z: -0.0651498}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 502972067}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1965722937
 GameObject:
   m_ObjectHideFlags: 0
@@ -12905,6 +12964,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WinUI: {fileID: 2090199210}
+  Attributes: {fileID: 0}
 --- !u!1 &2092285879
 GameObject:
   m_ObjectHideFlags: 0
@@ -13860,10 +13920,11 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 294003981}
+  - {fileID: 502972067}
   - {fileID: 1759439772}
   - {fileID: 496897347}
   - {fileID: 613800420}
   - {fileID: 643613309}
   - {fileID: 1177186810}
   - {fileID: 1731715702}
-  - {fileID: 1927922360}
+  - {fileID: 264863066}

@@ -44,11 +44,11 @@ public class PotatoMineStats : ClassicPlantStats
         }
         else if (sceneName == "Level two")
         {
-
+            maxHealth = lvl2.potatohealth;
         }
         else if (sceneName == "Level three")
         {
-
+            maxHealth = lvl3.potatohealth;
         }
         
         currentHealth = maxHealth;

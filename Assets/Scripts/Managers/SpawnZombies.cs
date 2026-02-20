@@ -10,6 +10,8 @@ public class SpawnZombies : MonoBehaviour
     public GameObject ZombiePrefab;
     public placePlant placePlant;
     public Transform[] spawnPoints;
+    public lvl2Settings lvl2;
+    public lvl3Settings lvl3;
     string sceneName;
     public int MaxSpawnCount;
     public int SpawnCount = 0;
@@ -49,18 +51,6 @@ public class SpawnZombies : MonoBehaviour
     {
         killCount = 0;
         placePlant = UnityEngine.Object.FindFirstObjectByType<placePlant>();
-        if (sceneName == "Level one")
-        {
-            spawnInterval = lvl1.SpawnCooldown;
-        }
-        else if (sceneName == "Level two")
-        {
-
-        }
-        else if (sceneName == "Level three")
-        {
-
-        }
     }
     private void attackLeastDefendedLane()
     {
@@ -86,6 +76,8 @@ public class SpawnZombies : MonoBehaviour
     private void Awake()
     {
         lvl1 = UnityEngine.Object.FindFirstObjectByType<lvl1Settings>();
+        lvl2 = UnityEngine.Object.FindFirstObjectByType<lvl2Settings>();
+        lvl3 = UnityEngine.Object.FindFirstObjectByType<lvl3Settings>();
         sceneName = SceneManager.GetActiveScene().name;
         if (sceneName == "Level one")
         {
@@ -94,11 +86,13 @@ public class SpawnZombies : MonoBehaviour
         }
         else if (sceneName == "Level two")
         {
-
+            MaxSpawnCount = lvl2.MaxSpawnCount;
+            spawnInterval = lvl2.SpawnCooldown;
         }
         else if (sceneName == "Level three")
         {
-
+            MaxSpawnCount = lvl3.MaxSpawnCount;
+            spawnInterval = lvl3.SpawnCooldown;
         }
 
     }

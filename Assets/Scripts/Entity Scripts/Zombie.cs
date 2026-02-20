@@ -12,6 +12,8 @@ public class Zombie : Entity
     public SpawnZombies killCount;
     public ClassicPlantStats plantStats;
     public lvl1Settings lvl1;
+    public lvl2Settings lvl2;
+    public lvl3Settings lvl3;
     public float damageTaken;
     string sceneName;
 
@@ -41,7 +43,9 @@ public class Zombie : Entity
         sceneName = SceneManager.GetActiveScene().name;        
         inCollision = false;
         currentHealth = maxHealth;
-        lvl1 = Object.FindFirstObjectByType<lvl1Settings>();       
+        lvl1 = Object.FindFirstObjectByType<lvl1Settings>(); 
+        lvl2 = Object.FindFirstObjectByType<lvl2Settings>();
+        lvl3 = Object.FindFirstObjectByType<lvl3Settings>();
         if (sceneName == "Level one")
         {
             Speed = lvl1.zombiespeed;
@@ -51,11 +55,13 @@ public class Zombie : Entity
         }
         else if (sceneName == "Level two")
         {
-
+            Speed = lvl2.zombiespeed;
+            damageTaken = lvl2.damage;
         }
         else if (sceneName == "Level three")
         {
-
+            Speed = lvl3.zombiespeed;
+            damageTaken = lvl3.damage;
         }
     }
     void OnCollisionEnter2D(Collision2D collision)

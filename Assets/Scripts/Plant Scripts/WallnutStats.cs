@@ -11,11 +11,11 @@ public class WallnutStats : ClassicPlantStats
         }
         else if (sceneName == "Level two")
         {
-
+            maxHealth = lvl2.wallnuthealth;
         }
         else if (sceneName == "Level three")
         {
-
+            maxHealth = lvl3.wallnuthealth;
         }
         currentHealth = maxHealth;
     }

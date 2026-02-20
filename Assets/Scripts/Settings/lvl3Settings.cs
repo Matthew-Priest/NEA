@@ -1,18 +1,18 @@
 using UnityEngine;
 
-public class lvl1Settings : MonoBehaviour
+public class lvl3Settings : MonoBehaviour
 {
-    public float generationCooldown = 17f;
-    public int SpawnCooldown = 12;
-    public int MaxSpawnCount = 20;
+    public float generationCooldown = 24f; //sun spawning naturally
+    public int SpawnCooldown = 9; //zombies
+    public int MaxSpawnCount = 30; //zombie
     public float attackCooldown = 4f;
-    public float damage = 10f; //look in zombie script to alter
+    public float damage = 15f; //look in zombie script to alter
     public float peahealth = 70f;
     public float potatohealth = 25f;
     public float wallnuthealth = 200f;
     public float sunflowerhealth = 40f;
     public bool sunburst = false;
-    public float zombiespeed = 0.3f;
+    public float zombiespeed = 0.36f;
     public Attributes Attributes;
     void Start()
     {
@@ -21,7 +21,7 @@ public class lvl1Settings : MonoBehaviour
         {
             damage = damage * 1.1f;
         }
-       if (Attributes.attributeslist.Contains("reducecooldown")) //fire projectile cooldown
+        if (Attributes.attributeslist.Contains("reducecooldown")) //fire projectile cooldown
         {
             attackCooldown = attackCooldown * 0.9f;
         }
@@ -38,7 +38,7 @@ public class lvl1Settings : MonoBehaviour
         }
         if (Attributes.attributeslist.Contains("sunburst"))// sunflower ability
         {
-            sunburst = true;   
+            sunburst = true;
         }
         if (Attributes.attributeslist.Contains("slowenemies"))
         {

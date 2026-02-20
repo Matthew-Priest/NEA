@@ -10,6 +10,8 @@ public class ClassicPlantStats : MonoBehaviour
     public float currentHealth;
     public placePlant removePlant;
     public lvl1Settings lvl1;
+    public lvl2Settings lvl2;
+    public lvl3Settings lvl3;
     public string sceneName;
     private void Awake()
     {
@@ -17,6 +19,8 @@ public class ClassicPlantStats : MonoBehaviour
         currentHealth = maxHealth;
         removePlant = Object.FindFirstObjectByType<placePlant>();
         lvl1 = Object.FindFirstObjectByType<lvl1Settings>();
+        lvl2 = Object.FindFirstObjectByType<lvl2Settings>();
+        lvl3 = Object.FindFirstObjectByType<lvl3Settings>();
     }
     public void takeDamage(int damage)
     {

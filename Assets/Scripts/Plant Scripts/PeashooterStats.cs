@@ -18,11 +18,13 @@ public class PeashooterStats : ClassicPlantStats
         }
         else if (sceneName == "Level two")
         {
-
+            maxHealth = lvl2.peahealth;
+            fireCooldown = lvl2.attackCooldown;
         }
         else if (sceneName == "Level three")
         {
-
+            maxHealth = lvl3.peahealth;
+            fireCooldown = lvl3.attackCooldown;
         }
         //fireCooldown = lvl1Settings.attackCooldown;
         currentHealth = maxHealth;

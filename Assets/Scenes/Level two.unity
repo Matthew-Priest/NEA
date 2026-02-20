@@ -1366,38 +1366,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 264863066}
-  - component: {fileID: 264863065}
+  - component: {fileID: 264863067}
   m_Layer: 0
-  m_Name: Lvl1Settings
+  m_Name: Lvl2Settings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &264863065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 264863064}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a61e62e3abc9920418ff8fdb980c2cc3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  generationCooldown: 17
-  SpawnCooldown: 12
-  MaxSpawnCount: 20
-  attackCooldown: 5
-  damage: 10
-  peahealth: 70
-  potatohealth: 25
-  wallnuthealth: 200
-  sunflowerhealth: 40
-  sunburst: 0
-  zombiespeed: 0.3
-  Attributes: {fileID: 0}
 --- !u!4 &264863066
 Transform:
   m_ObjectHideFlags: 0
@@ -1413,6 +1389,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &264863067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264863064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5c5baad9d2bf204ea416232856408f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generationCooldown: 20
+  SpawnCooldown: 10
+  MaxSpawnCount: 25
+  attackCooldown: 4
+  damage: 12
+  peahealth: 70
+  potatohealth: 25
+  wallnuthealth: 200
+  sunflowerhealth: 40
+  sunburst: 0
+  zombiespeed: 0.33
+  Attributes: {fileID: 0}
 --- !u!1 &280612733
 GameObject:
   m_ObjectHideFlags: 0
@@ -6312,8 +6312,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  fireCooldown: 4
-  currentHealth: 0
+  fireCooldown: 10
+  currentHealth: 100
   removePlant: {fileID: 0}
   lvl1: {fileID: 0}
   lvl2: {fileID: 0}
