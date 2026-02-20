@@ -7,20 +7,30 @@ public class winScreen : MonoBehaviour
     string sceneName; /*gets level of active level so that script knows how many coins to award for win*/
     public GameObject WinUI;
     public Attributes Attributes;
+    bool gamewon;
     public void stopGame()
     {
         WinUI.SetActive(true);
         Time.timeScale = 0;
-        if(sceneName == "Level one")
+        if(gamewon == false)
         {
-            Attributes.AttributeMoney += 5;
-        } else if(sceneName == "Level two")
-        {
-            Attributes.AttributeMoney += 10;
-        }else if (sceneName == "Level three")
-        {
-            Attributes.AttributeMoney += 15;
+            if (sceneName == "Level one")
+            {
+                Attributes.AttributeMoney += 5;
+                gamewon = true;
+            }
+            else if (sceneName == "Level two")
+            {
+                Attributes.AttributeMoney += 10;
+                gamewon = true;
+            }
+            else if (sceneName == "Level three")
+            {
+                Attributes.AttributeMoney += 15;
+                gamewon = true;
+            }
         }
+
     }
     public void Quit()
     {
@@ -37,5 +47,6 @@ public class winScreen : MonoBehaviour
     {
         sceneName = SceneManager.GetActiveScene().name;
         Attributes = Object.FindFirstObjectByType<Attributes>();
+        gamewon = false;
     }
 }

@@ -11,10 +11,11 @@ public class displayMoney : MonoBehaviour
     private void Start()
     {
         Attributes = Object.FindFirstObjectByType<Attributes>();
-        money = Attributes.AttributeMoney;
+        
     }
     private void Update()
     {
         moneyText.text = money.ToString();
+        money = Attributes.AttributeMoney;
     }
 }
